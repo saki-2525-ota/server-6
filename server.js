@@ -10,7 +10,7 @@ app.get('/api/:a/:b/:c', async (c) => {
   const b = c.req.param('b');
   const c = c.req.param('c');
 
-  return c.json({ message: 'GET', a, b, name });
+  return c.json({ message: 'GET', param: { a, b } });
 });
 
 // POSTリクエストに対する処理
