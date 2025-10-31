@@ -15,7 +15,11 @@ app.get('/api/:a/:b/:c', async (c) => {
 
 // POSTリクエストに対する処理
 app.get('/api', async (c) => {
-  return c.json({ message: 'POST' });
+  const body = await c.req.parseBody();
+  const name = body['name'];
+  const rank = body['rank'];
+
+  return c.json({ message: 'POST', form: { name, rank } });
 });
 
 // PUTリクエストに対する処理
