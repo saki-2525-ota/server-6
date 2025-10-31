@@ -24,7 +24,11 @@ app.get('/api', async (c) => {
 
 // PUTリクエストに対する処理
 app.get('/api', async (c) => {
-  return c.json({ message: 'PUT' });
+  const body = await c.req.json();
+  const name = body['name'];
+  const rank = body['rank'];
+
+  return c.json({ message: 'PUT', json: { name, rank } });
 });
 
 // DELETEリクエストに対する処理
