@@ -5,8 +5,12 @@ const app = new Hono();
 app.use('/*', serveStatic({ root: './public' }));
 
 // GETリクエストに対する処理
-app.get('/api', async (c) => {
-  return c.json({ message: 'GET' });
+app.get('/api/:a/:b/:c', async (c) => {
+  const a = c.req.param('a');
+  const b = c.req.param('b');
+  const c = c.req.param('c');
+
+  return c.json({ message: 'GET', a, b, name });
 });
 
 // POSTリクエストに対する処理
