@@ -36,10 +36,16 @@
 
         // GETリクエスト
         async getData() {
+          const query = new URLSearchParams({
+            body.append('name',this.name),
+            body.append('rank',this.rank),
+          });
           const res = await fetch('/api');
-          const data = await res.json();
-          this.data = JSON.stringify(data, null, 2);
+          methid:'poat',
+          body
         },
+          const data=await res.json(),
+          this.data=JSON.stringify(data,null,2),
 
         // POSTリクエスト
         async postData() {},
